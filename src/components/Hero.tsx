@@ -35,7 +35,7 @@ export function Hero({ onOpenQuiz }: HeroProps) {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
           >
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#0C3754] mb-4 lg:mb-6 leading-tight">
-              Somos Creadores de Sonrisas
+              Estamos en cada movimiento
             </h1>
             <p className="text-lg sm:text-xl text-[#0C3754]/70 mb-4 lg:mb-8">
               SupraLine es innovación y respaldo odontológico profesional.
