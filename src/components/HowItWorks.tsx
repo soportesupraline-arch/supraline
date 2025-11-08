@@ -21,7 +21,7 @@ export function HowItWorks() {
     {
       icon: Heart,
       title: 'Seguimiento profesional',
-      description: 'Te acompañamos en cada etapa con controles odontológicos regulares.'
+      description: 'Te acompañamos en cada etapa con controles odontológicos regulares incluidos dentro del tratamineto.'
     }
   ];
 
