@@ -63,7 +63,7 @@ export function Contact() {
 
               {/* Instagram */}
               <a
-                href="https://instagram.com/supraline"
+                href="https://instagram.com/supra__arg"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-2xl hover:shadow-lg transition-all group"
@@ -77,7 +77,7 @@ export function Contact() {
                     Seguinos en redes
                   </p>
                   <p className="text-[#0578B7] mt-1 sm:mt-2 text-sm sm:text-base">
-                    @supraline
+                    @supra__arg
                   </p>
                 </div>
               </a>
