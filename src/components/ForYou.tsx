@@ -7,7 +7,7 @@ export function ForYou() {
     {
       title: 'Supra Kids',
       subtitle: 'Para los más chicos',
-      description: 'Tratamiento diseñado especialmente para niños, con seguimiento cercano y un enfoque amigable.',
+      description: 'Tratamiento diseñado especialmente para niños, con seguimiento cercano acargo de odontopediatras.',
       image: 'https://images.unsplash.com/photo-1585628481967-1abce3066501?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGtpZCUyMHNtaWxpbmd8ZW58MXx8fHwxNzYyMjAzNjIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Baby,
       gradient: 'from-[#0578B7]/20 to-[#ECEBE4]',
@@ -16,7 +16,7 @@ export function ForYou() {
     {
       title: 'Supra Teens',
       subtitle: 'Para adolescentes',
-      description: 'Alineadores discretos que se adaptan a tu estilo de vida activo y dinámico.',
+      description: 'Alineadores transparentes que se adaptan a tu estilo de vida activo y dinámico, incluso en el deporte.',
       image: 'https://images.unsplash.com/photo-1544806861-dc05b18f6c13?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25maWRlbnQlMjB0ZWVuYWdlciUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MjIwMzYyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Smile,
       gradient: 'from-[#0C3754]/20 to-[#ECEBE4]',
@@ -25,7 +25,7 @@ export function ForYou() {
     {
       title: 'Supra Adults',
       subtitle: 'Para adultos',
-      description: 'Solución profesional y discreta que se integra perfectamente a tu vida diaria.',
+      description: 'Solución profesional y discreta que se integra perfectamente a tu rutina diaria.',
       image: 'https://images.unsplash.com/photo-1584940121730-93ffb8aa88b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBhZHVsdCUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MjIwMzYyM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
       icon: Briefcase,
       gradient: 'from-[#D4D4CD]/50 to-[#ECEBE4]',
