@@ -38,7 +38,7 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="block">
+          <div className="hidden lg:block">
             <a
               href="#contacto"
               className="bg-[#0578B7] text-white px-5 xl:px-6 py-2.5 xl:py-3 rounded-full hover:bg-[#0C3754] transition-colors text-sm xl:text-base whitespace-nowrap"
