@@ -2620,3 +2620,8 @@ body {
     height: 0;
   }
 }
+
+/* Prevent horizontal scroll due to fixed elements/animations */
+html, body {
+  overflow-x: hidden;
+}

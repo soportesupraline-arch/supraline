@@ -1,31 +1,25 @@
 import { MessageCircle } from 'lucide-react';
 
 export function WhatsAppButton() {
-  const whatsappNumber = '5491176008393'; // Número de WhatsApp de SupraLine
-  const whatsappMessage = encodeURIComponent('¡Hola! Me gustaría obtener más información sobre los alineadores SupraLine.');
+  const whatsappNumber = '5491176008393';
+  const whatsappMessage = encodeURIComponent(
+    'Hola! Me gustaría obtener más información sobre los alineadores SupraLine.'
+  );
 
   return (
     <a
       href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 group"
-      aria-label="Contactar por WhatsApp"
+      aria-label="Contactanos por WhatsApp"
+      className="group fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex items-center bg-[#25D366] text-white rounded-full shadow-[0_10px_20px_rgba(12,55,84,0.15)] hover:shadow-[0_16px_28px_rgba(12,55,84,0.22)] overflow-hidden transition-[width,transform,box-shadow] duration-300 ease-out w-14 h-14 sm:w-16 sm:h-16 hover:w-[260px] focus-visible:w-[260px] hover:scale-[1.02]"
     >
-      <div className="relative">
-        {/* Tooltip - Only visible on desktop */}
-        <div className="hidden lg:block absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-white text-[#0C3754] px-4 py-2 rounded-lg shadow-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none text-sm">
-          ¿Necesitás Ayuda? Chateá con Nosotros
-        </div>
-
-        {/* Button */}
-        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:shadow-2xl hover:scale-110 transition-all cursor-pointer">
-          <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
-        </div>
-
-        {/* Pulse animation */}
-        <div className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-75"></div>
-      </div>
+      <span className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 shrink-0">
+        <MessageCircle className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
+      </span>
+      <span className="pr-5 font-medium select-none whitespace-nowrap opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-200">
+        Contactanos por WhatsApp
+      </span>
     </a>
   );
 }

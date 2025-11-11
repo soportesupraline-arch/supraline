@@ -15,7 +15,7 @@ export default function App() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main>
         <Hero onOpenQuiz={() => setIsQuizOpen(true)} />
