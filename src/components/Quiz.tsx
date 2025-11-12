@@ -58,10 +58,34 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
     }, 300);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setCurrentStep('thanks');
+  const handleFormSubmit = async (e) => {
+  e.preventDefault();
+
+  const data = {
+    ...formData,
+    ...answers,
   };
+
+  try {
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbx5f2W6DdMiFNX9MU7Yvc0uGzKbsKU5njoc4mnYRsm-8J28gFdf_xh1diXSPgDB_1XW/exec",
+      {
+        method: "POST",
+        mode: "no-cors", // 👈 esto evita que bloquee la solicitud
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    alert("✅ Datos enviados correctamente. Gracias por completar el quiz!");
+    setCurrentStep("thanks");
+  } catch (error) {
+    console.error("❌ Error al enviar los datos:", error);
+    alert("Error de conexión con el servidor");
+  }
+};
 
   const resetQuiz = () => {
     setCurrentStep('start');
