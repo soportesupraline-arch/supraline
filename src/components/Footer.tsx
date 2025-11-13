@@ -1,16 +1,12 @@
 import { Instagram, Mail } from 'lucide-react';
-import logoSupraLine from 'figma:asset/c1a353a717fcb23b002769cfaa822d809be39eb5.png';
 
 export function Footer() {
   return (
     <footer className="bg-[#0C3754] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Logo y descripción */}
+          {/* Descripción */}
           <div className="col-span-1 md:col-span-2">
-            <div className="mb-4">
-              <img src={logoSupraLine} alt="SupraLine" className="h-16 brightness-0 invert" />
-            </div>
             <p className="text-white/80 mb-6 max-w-md">
               Transformamos sonrisas con tecnología de vanguardia y el respaldo profesional que merecés.
             </p>
@@ -107,3 +103,4 @@ export function Footer() {
     </footer>
   );
 }
+

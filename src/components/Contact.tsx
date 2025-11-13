@@ -102,7 +102,7 @@ export function Contact() {
 
           {/* Image */}
           <motion.div 
-            className="relative rounded-3xl overflow-hidden shadow-2xl order-1 lg:order-2"
+            className="relative rounded-3xl overflow-hidden shadow-2xl order-1 lg:order-2 w-full max-w-md h-56 sm:h-64 lg:h-72 xl:h-80 mx-auto"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -111,7 +111,7 @@ export function Contact() {
             <img
               src={contactImage}
               alt="Alineadores SupraLine"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </motion.div>
         </div>
