@@ -19,7 +19,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
-              <img src="/logo_supraline.png" alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
+              <img src="/logo_supraline.PNG" alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
             </a>
           </div>
 
@@ -29,7 +29,7 @@ export function Header() {
               <a
                 key={item.href}
                 href={item.href}
-                className="text-[#0C3754] hover:text-[#0578B7] transition-colors text-sm xl:text-base whitespace-nowrap"
+                className="text-[#0C3754] hover:text-[#0578B7] transition-colors text-base xl:text-lg whitespace-nowrap"
               >
                 {item.label}
               </a>

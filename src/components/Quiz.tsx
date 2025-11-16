@@ -363,7 +363,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                   Dejanos tus datos y te ayudamos a resolver tus dudas.
                 </h3>
                 <p className="text-sm sm:text-base text-[#0C3754]/70 mb-6 sm:mb-8 text-center">
-                  Un odontólogo SupraLine te contactará en breve.
+                  Un odontólogo de Supra te contactará en breve.
                 </p>
                 <form onSubmit={handleFormSubmit} className="space-y-3 sm:space-y-4 max-w-xl mx-auto">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">

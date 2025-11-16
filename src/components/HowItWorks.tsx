@@ -16,7 +16,7 @@ export function HowItWorks() {
     {
       icon: Package,
       title: 'Recibís tus alineadores',
-      description: 'Te entregamos tu kit personalizado con todos los alineadores del tratamiento.'
+      description: 'Te entregamos tu kit personalizado con alineadores para tu tratamiento.'
     },
     {
       icon: Heart,

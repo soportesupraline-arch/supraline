@@ -1,4 +1,4 @@
-import { MessageCircle, Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
 import contactImage from 'figma:asset/db236796fdfb669dfcbb2ea29e67855ee2b2458f.png';
 
@@ -48,7 +48,11 @@ export function Contact() {
                 className="flex items-start gap-3 sm:gap-4 p-4 sm:p-6 bg-white rounded-2xl hover:shadow-lg transition-all group"
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#25D366] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                  <MessageCircle className="text-white w-5 h-5 sm:w-6 sm:h-6" />
+                  <img
+                    src="/whatsapp-botton.png"
+                    alt="Logo de WhatsApp"
+                    className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                  />
                 </div>
                 <div>
                   <h4 className="text-[#0C3754] mb-1 text-sm sm:text-base">WhatsApp</h4>
