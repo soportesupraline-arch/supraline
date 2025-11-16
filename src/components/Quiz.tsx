@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { CheckCircle, ArrowRight, User, Users, Baby, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -38,6 +38,15 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
     telefono: ''
   });
 
+  const biteOptions = [
+    { label: 'Sobremordida', image: '/Sobremordida.png' },
+    { label: 'Mordida cruzada', image: '/Mordida_cruzada.png' },
+    { label: 'Mordida abierta', image: '/Mordida_abierta.png' },
+    { label: 'Dientes separados', image: '/Dientes_separados.png' },
+    { label: 'Dientes apiñados', image: '/Dientes_apinados.png' },
+    { label: 'Mordida profunda anterior', image: '/Mordida_profunda_anterior.png' }
+  ];
+
   const totalQuestions = 5;
   const stepToNumber: Record<string, number> = {
     q1: 1, q2: 2, q3: 3, q4: 4, q5: 5, form: 6
@@ -71,7 +80,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
       "https://script.google.com/macros/s/AKfycbx5f2W6DdMiFNX9MU7Yvc0uGzKbsKU5njoc4mnYRsm-8J28gFdf_xh1diXSPgDB_1XW/exec",
       {
         method: "POST",
-        mode: "no-cors", // 👈 esto evita que bloquee la solicitud
+        mode: "no-cors", // ðŸ‘ˆ esto evita que bloquee la solicitud
         headers: {
           "Content-Type": "application/json",
         },
@@ -79,11 +88,11 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
       }
     );
 
-    alert("✅ Datos enviados correctamente. Gracias por completar el quiz!");
+    alert("âœ… Datos enviados correctamente. Gracias por completar el quiz!");
     setCurrentStep("thanks");
   } catch (error) {
-    console.error("❌ Error al enviar los datos:", error);
-    alert("Error de conexión con el servidor");
+    console.error("âŒ Error al enviar los datos:", error);
+    alert("Error de conexiÃ³n con el servidor");
   }
 };
 
@@ -108,15 +117,15 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
             <CheckCircle size={18} className="sm:w-5 sm:h-5" />
-            <span>Evaluación rápida y sin compromiso</span>
+            <span>EvaluaciÃ³n rÃ¡pida y sin compromiso</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 px-4">
-            ¿Sos candidato para SupraLine?
+            Â¿Sos candidato para SupraLine?
           </h2>
           
           <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-            Respondé algunas preguntas simples y descubrí si los alineadores SupraLine son la solución ideal para tu sonrisa.
+            RespondÃ© algunas preguntas simples y descubrÃ­ si los alineadores SupraLine son la soluciÃ³n ideal para tu sonrisa.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
@@ -124,13 +133,13 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
               onClick={() => setInternalIsOpen(true)}
               className="w-full sm:w-auto bg-white text-[#0578B7] px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-[#ECEBE4] transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base"
             >
-              Completá el quiz
+              CompletÃ¡ el quiz
               <ArrowRight size={18} className="sm:w-5 sm:h-5" />
             </button>
           </div>
 
           <p className="text-xs sm:text-sm text-white/70 mt-6 sm:mt-8">
-            ⏱️ Tiempo estimado: 2 minutos
+            â±ï¸ Tiempo estimado: 2 minutos
           </p>
         </div>
       </section>
@@ -180,7 +189,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                   ¿Querés saber si los alineadores SupraLine son para vos?
                 </h2>
                 <p className="text-base sm:text-lg text-[#0C3754]/70 mb-8 sm:mb-10">
-                  Respondé unas preguntas rápidas y descubrilo.
+                  Responde unas preguntas rapidas y descubrilo.
                 </p>
                 <button
                   onClick={() => setCurrentStep('q1')}
@@ -201,7 +210,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                 exit={{ opacity: 0, x: -50 }}
               >
                 <h3 className="text-xl sm:text-2xl lg:text-3xl text-[#0C3754] mb-6 sm:mb-8 text-center">
-                  Contanos quién usará los alineadores.
+                  Contanos quien usaríra los alineadores.
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                   {[
@@ -234,28 +243,23 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                   ¿Cómo describirías tu sonrisa actual?
                 </h3>
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
-                  {[
-                    'Sobremordida',
-                    'Prognatismo',
-                    'Mordida cruzada',
-                    'Dientes separados',
-                    'Mordida abierta',
-                    'Dientes apiñados',
-                    'Generalmente rectos',
-                    'Dientes de leche mixtos'
-                  ].map(option => (
+                  {biteOptions.map(option => (
                     <button
-                      key={option}
-                      onClick={() => handleAnswer('q2', option)}
-                      className="p-3 sm:p-4 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base"
+                      key={option.label}
+                      onClick={() => handleAnswer('q2', option.label)}
+                      className="p-3 sm:p-4 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base flex flex-col items-center"
                     >
-                      {option}
+                      <img
+                        src={option.image}
+                        alt={option.label}
+                        className="w-full h-24 sm:h-28 object-contain mb-3"
+                      />
+                      {option.label}
                     </button>
                   ))}
                 </div>
               </motion.div>
             )}
-
             {/* Pregunta 3 */}
             {currentStep === 'q3' && (
               <motion.div
@@ -265,7 +269,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                 exit={{ opacity: 0, x: -50 }}
               >
                 <h3 className="text-xl sm:text-2xl lg:text-3xl text-[#0C3754] mb-6 sm:mb-8 text-center">
-                  ¿Qué es lo que más te gustaría mejorar de tu sonrisa?
+                  ¿Qué es lo que mas te gustaría mejorar de tu sonrisa?
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {[
@@ -428,7 +432,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                   ¡Gracias por completar tu quiz!
                 </h3>
                 <p className="text-base sm:text-lg text-[#0C3754]/70 mb-6 sm:mb-8 max-w-lg mx-auto px-4">
-                  Un odontólogo SupraLine te contactará en breve por WhatsApp o email.
+                  Un profesional te contactará en breve por WhatsApp o email.
                 </p>
                 <button
                   onClick={resetQuiz}
@@ -444,3 +448,5 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
     </div>
   );
 }
+
+
