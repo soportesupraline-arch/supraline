@@ -88,11 +88,11 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
       }
     );
 
-    alert("âœ… Datos enviados correctamente. Gracias por completar el quiz!");
+    alert("Datos enviados correctamente. Gracias por completar el quiz!");
     setCurrentStep("thanks");
   } catch (error) {
-    console.error("âŒ Error al enviar los datos:", error);
-    alert("Error de conexiÃ³n con el servidor");
+    console.error("...Error al enviar los datos:", error);
+    alert("Error de conexión con el servidor");
   }
 };
 
@@ -106,26 +106,22 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
 
   if (!isOpen) {
     return (
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[#0C3754] to-[#0578B7] relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 left-10 w-40 h-40 border-4 border-white rounded-full"></div>
-          <div className="absolute bottom-20 right-20 w-60 h-60 border-4 border-white rounded-full"></div>
-          <div className="absolute top-1/2 left-1/3 w-32 h-32 border-4 border-white rounded-full"></div>
-        </div>
-
+      <section
+        className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-cover bg-center"
+        style={{ backgroundImage: 'url(/fondo_quiz.png)' }}
+      >
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 text-white px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6 text-sm sm:text-base">
             <CheckCircle size={18} className="sm:w-5 sm:h-5" />
-            <span>EvaluaciÃ³n rÃ¡pida y sin compromiso</span>
+            <span>Evaluación rápida y sin compromiso</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 px-4">
-            Â¿Sos candidato para SupraLine?
+            ¿Sos candidato para SupraLine?
           </h2>
           
           <p className="text-base sm:text-lg lg:text-xl text-white/90 mb-8 sm:mb-10 max-w-2xl mx-auto px-4">
-            RespondÃ© algunas preguntas simples y descubrÃ­ si los alineadores SupraLine son la soluciÃ³n ideal para tu sonrisa.
+            Respondé algunas preguntas simples y descubr­í si los alineadores SupraLine son la solución ideal para tu sonrisa.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
@@ -133,13 +129,13 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
               onClick={() => setInternalIsOpen(true)}
               className="w-full sm:w-auto bg-white text-[#0578B7] px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-[#ECEBE4] transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base"
             >
-              CompletÃ¡ el quiz
+              Completá el quiz
               <ArrowRight size={18} className="sm:w-5 sm:h-5" />
             </button>
           </div>
 
           <p className="text-xs sm:text-sm text-white/70 mt-6 sm:mt-8">
-            â±ï¸ Tiempo estimado: 2 minutos
+            Tiempo estimado: 2 minutos
           </p>
         </div>
       </section>
@@ -147,7 +143,13 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-0 sm:p-4 overflow-y-auto">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-0 sm:p-4 overflow-y-auto relative">
+      <img
+        src="/fondo_quiz.png"
+        alt=""
+        aria-hidden="true"
+        className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none select-none -z-10"
+      />
       <motion.div 
         className="bg-white rounded-none sm:rounded-3xl shadow-2xl w-full max-w-3xl min-h-screen sm:min-h-0 sm:my-8 relative"
         initial={{ opacity: 0, scale: 0.9 }}

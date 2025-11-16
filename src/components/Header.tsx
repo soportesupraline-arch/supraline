@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import logoSupraLine from 'figma:asset/c1a353a717fcb23b002769cfaa822d809be39eb5.png';
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +19,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
-              <img src={logoSupraLine} alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
+              <img src="/logo_supraline.png" alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
             </a>
           </div>
 
