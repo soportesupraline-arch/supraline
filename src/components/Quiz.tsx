@@ -43,7 +43,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
     { label: 'Mordida cruzada', image: '/Mordida_cruzada.png' },
     { label: 'Mordida abierta', image: '/Mordida_abierta.png' },
     { label: 'Dientes separados', image: '/Dientes_separados.png' },
-    { label: 'Dientes apiñados', image: '/Mordida_apinados.png', imageClass: 'scale-125' },
+    { label: 'Dientes apiñados (rotados)', image: '/Mordida_apinados.png', imageClass: 'scale-125' },
     { label: 'Mordida profunda anterior', image: '/Mordida_profunda_anterior.png' }
   ];
 
