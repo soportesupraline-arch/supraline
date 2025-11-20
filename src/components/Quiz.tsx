@@ -22,12 +22,11 @@ interface Answers {
 
 interface QuizProps {
   isOpen: boolean;
+  onOpen: () => void;
   onClose: () => void;
 }
 
-export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizProps) {
-  const [internalIsOpen, setInternalIsOpen] = useState(false);
-  const isOpen = externalIsOpen || internalIsOpen;
+export function Quiz({ isOpen, onOpen, onClose }: QuizProps) {
   const [currentStep, setCurrentStep] = useState<QuizStep>('start');
   const [answers, setAnswers] = useState<Partial<Answers>>({});
   const [formData, setFormData] = useState<FormData>({
@@ -100,8 +99,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
     setCurrentStep('start');
     setAnswers({});
     setFormData({ nombre: '', apellido: '', email: '', direccion: '', telefono: '' });
-    setInternalIsOpen(false);
-    externalOnClose();
+    onClose();
   };
 
   if (!isOpen) {
@@ -126,7 +124,9 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center px-4">
             <button 
-              onClick={() => setInternalIsOpen(true)}
+              data-quiz-trigger
+              type="button"
+              onClick={onOpen}
               className="w-full sm:w-auto bg-white text-[#0578B7] px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-[#ECEBE4] transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base"
             >
               Completá el quiz
@@ -143,7 +143,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-0 sm:p-4 overflow-y-auto relative">
+    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center px-4 sm:px-6 py-12 sm:py-16 overflow-y-auto relative">
       <img
         src="/fondo_quiz.png"
         alt=""
@@ -151,7 +151,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
         className="hidden sm:block absolute inset-0 w-full h-full object-cover opacity-20 pointer-events-none select-none -z-10"
       />
       <motion.div 
-        className="bg-white rounded-none sm:rounded-3xl shadow-2xl w-full max-w-3xl min-h-screen sm:min-h-0 sm:my-8 relative"
+        className="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-3xl relative max-h-[calc(100vh-4rem)] overflow-y-auto"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
@@ -170,6 +170,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
 
         {/* Close Button */}
         <button
+          type="button"
           onClick={resetQuiz}
           className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 bg-[#ECEBE4] rounded-full flex items-center justify-center hover:bg-[#D4D4CD] transition-colors z-20"
         >
@@ -194,6 +195,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                   Responde unas preguntas rapidas y descubrilo.
                 </p>
                 <button
+                  type="button"
                   onClick={() => setCurrentStep('q1')}
                   className="w-full sm:w-auto bg-[#0578B7] text-white px-8 sm:px-10 py-3 sm:py-4 rounded-full hover:bg-[#0C3754] transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base"
                 >
@@ -221,6 +223,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                     { icon: Baby, label: 'Soy padre o madre', value: 'padre' }
                   ].map(option => (
                     <button
+                      type="button"
                       key={option.value}
                       onClick={() => handleAnswer('q1', option.value)}
                       className="flex flex-col items-center gap-3 sm:gap-4 p-5 sm:p-6 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all group shadow-sm hover:shadow-lg"
@@ -247,6 +250,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
                   {biteOptions.map(option => (
                     <button
+                      type="button"
                       key={option.label}
                       onClick={() => handleAnswer('q2', option.label)}
                       className="p-3 sm:p-4 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base flex flex-col items-center"
@@ -281,6 +285,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                     'Tener una sonrisa más estética'
                   ].map(option => (
                     <button
+                      type="button"
                       key={option}
                       onClick={() => handleAnswer('q3', option)}
                       className="p-5 sm:p-6 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base"
@@ -311,6 +316,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                     '¿Necesito ir al odontólogo seguido?'
                   ].map(option => (
                     <button
+                      type="button"
                       key={option}
                       onClick={() => handleAnswer('q4', option)}
                       className="p-5 sm:p-6 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base"
@@ -340,6 +346,7 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
                     'Ya tengo turno'
                   ].map(option => (
                     <button
+                      type="button"
                       key={option}
                       onClick={() => handleAnswer('q5', option)}
                       className="p-5 sm:p-6 bg-[#ECEBE4] rounded-2xl hover:bg-[#0578B7] hover:text-white transition-all shadow-sm hover:shadow-lg text-[#0C3754] hover:text-white text-center text-sm sm:text-base"
@@ -449,6 +456,11 @@ export function Quiz({ isOpen: externalIsOpen, onClose: externalOnClose }: QuizP
       </motion.div>
     </div>
   );
+
+  return (
+    <>
+      {introSection}
+      {isOpen && modalContent}
+    </>
+  );
 }
-
-

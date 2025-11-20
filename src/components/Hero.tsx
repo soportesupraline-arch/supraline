@@ -8,6 +8,12 @@ interface HeroProps {
 }
 
 export function Hero({ onOpenQuiz }: HeroProps) {
+  const handleHeroClick = () => {
+    onOpenQuiz();
+    const triggerButton = document.querySelector<HTMLButtonElement>('[data-quiz-trigger]');
+    triggerButton?.click();
+    triggerButton?.focus();
+  };
   // Usa src/assets/hero.(jpg|jpeg|png|webp); si no existe, cae al asset por defecto del proyecto.
   const heroAssetUrl = useMemo(() => {
     const matches = import.meta.glob('../assets/hero.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
@@ -53,7 +59,8 @@ export function Hero({ onOpenQuiz }: HeroProps) {
               Transformá tu sonrisa de manera cómoda, estética y con el acompañamiento que merecés en cada paso del proceso.
             </p>
             <button
-              onClick={onOpenQuiz}
+              type="button"
+              onClick={handleHeroClick}
               className="inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap bg-[#0578B7] text-white px-5 py-2.5 rounded-full text-base shadow-[0_10px_18px_rgba(12,55,84,0.14)] hover:bg-[#0C3754] hover:shadow-[0_14px_24px_rgba(12,55,84,0.18)] transition-colors"
             >
               Descubrí tu tratamiento

@@ -13,16 +13,18 @@ import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
+  const handleOpenQuiz = () => setIsQuizOpen(true);
+  const handleCloseQuiz = () => setIsQuizOpen(false);
 
   return (
     <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main>
-        <Hero onOpenQuiz={() => setIsQuizOpen(true)} />
+        <Hero onOpenQuiz={handleOpenQuiz} />
         <HowItWorks />
         <ForYou />
         <WhySupraLine />
-        <Quiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />
+        <Quiz isOpen={isQuizOpen} onOpen={handleOpenQuiz} onClose={handleCloseQuiz} />
         <Testimonials />
         <FAQ />
         <Contact />
