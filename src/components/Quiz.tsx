@@ -104,8 +104,10 @@ export function Quiz({ isOpen, onOpen, onClose }: QuizProps) {
 
   if (!isOpen) {
     return (
-      <section
-        className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-cover bg-center"
+    <section
+      id="quiz"
+      data-quiz-section
+      className="py-12 sm:py-16 lg:py-20 relative overflow-hidden bg-cover bg-center"
         style={{ backgroundImage: 'url(/fondo_quiz.png)' }}
       >
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

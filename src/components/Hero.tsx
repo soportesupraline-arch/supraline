@@ -9,10 +9,10 @@ interface HeroProps {
 
 export function Hero({ onOpenQuiz }: HeroProps) {
   const handleHeroClick = () => {
+    document
+      .querySelector<HTMLElement>('[data-quiz-section]')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     onOpenQuiz();
-    const triggerButton = document.querySelector<HTMLButtonElement>('[data-quiz-trigger]');
-    triggerButton?.click();
-    triggerButton?.focus();
   };
   // Usa src/assets/hero.(jpg|jpeg|png|webp); si no existe, cae al asset por defecto del proyecto.
   const heroAssetUrl = useMemo(() => {
