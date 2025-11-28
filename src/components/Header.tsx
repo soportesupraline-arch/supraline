@@ -18,7 +18,7 @@ export function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <a href="#inicio" className="flex items-center">
-              <img src="/logo_supraline.PNG" alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
+              <img src="/logo_supraline.png" alt="SupraLine" className="h-14 sm:h-16 lg:h-[70px]" />
             </a>
           </div>
 
