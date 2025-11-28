@@ -8,8 +8,7 @@ export function Header() {
     { label: 'Home', href: '#inicio' },
     { label: 'Solo a 4 pasos', href: '#como-funciona' },
     { label: 'Supra piensa en todos', href: '#para-vos' },
-    { label: 'Por Qué SupraLine', href: '#por-que' },
-    { label: 'Experiencias', href: '#experiencias' }
+    { label: 'Por qué SupraLine', href: '#por-que' }
   ];
 
   return (

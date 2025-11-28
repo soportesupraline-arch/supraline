@@ -5,7 +5,6 @@ import { HowItWorks } from './components/HowItWorks';
 import { WhySupraLine } from './components/WhySupraLine';
 import { ForYou } from './components/ForYou';
 import { Quiz } from './components/Quiz';
-import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -25,7 +24,6 @@ export default function App() {
         <ForYou />
         <WhySupraLine />
         <Quiz isOpen={isQuizOpen} onOpen={handleOpenQuiz} onClose={handleCloseQuiz} />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>

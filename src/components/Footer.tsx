@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="bg-[#0C3754] text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Descripción */}
+          {/* Descripci��n */}
           <div className="col-span-1 md:col-span-2">
             <p className="text-white/80 mb-6 max-w-md">
               Transformamos sonrisas con tecnología de vanguardia y el respaldo profesional que merecés.
@@ -28,7 +28,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Enlaces rápidos */}
+          {/* Enlaces rǭpidos */}
           <div>
             <h3 className="text-lg mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2">
@@ -44,26 +44,21 @@ export function Footer() {
               </li>
               <li>
                 <a href="#por-que" className="text-white/80 hover:text-[#0578B7] transition-colors">
-                  Por Qué SupraLine
+                  Por qué SupraLine
                 </a>
               </li>
               <li>
                 <a href="#para-vos" className="text-white/80 hover:text-[#0578B7] transition-colors">
-                  Para Vos
+                  Para vos
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Información */}
+          {/* Informaci��n */}
           <div>
             <h3 className="text-lg mb-4">Información</h3>
             <ul className="space-y-2">
-              <li>
-                <a href="#experiencias" className="text-white/80 hover:text-[#0578B7] transition-colors">
-                  Testimonios
-                </a>
-              </li>
               <li>
                 <a href="#faq" className="text-white/80 hover:text-[#0578B7] transition-colors">
                   Preguntas Frecuentes
@@ -76,25 +71,25 @@ export function Footer() {
               </li>
               <li>
                 <a href="#" className="text-white/80 hover:text-[#0578B7] transition-colors">
-                  Términos y Condiciones
+                  
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Línea divisoria */}
+        {/* L��nea divisoria */}
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              © {new Date().getFullYear()} SupraLine. Todos los derechos reservados.
+               © {new Date().getFullYear()} SupraLine. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
               <a href="#" className="text-white/60 hover:text-white transition-colors">
-                Política de Privacidad
+               
               </a>
               <a href="#" className="text-white/60 hover:text-white transition-colors">
-                Términos de Uso
+               
               </a>
             </div>
           </div>
