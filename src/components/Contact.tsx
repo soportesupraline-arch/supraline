@@ -1,6 +1,6 @@
 import { Instagram, Mail } from 'lucide-react';
 import { motion } from 'motion/react';
-import contactImage from 'figma:asset/db236796fdfb669dfcbb2ea29e67855ee2b2458f.png';
+import contactImage from '../assets/db236796fdfb669dfcbb2ea29e67855ee2b2458f.jpg';
 
 export function Contact() {
   return (
@@ -51,6 +51,10 @@ export function Contact() {
                   <img
                     src="/whatsapp-botton.png"
                     alt="Logo de WhatsApp"
+                    loading="lazy"
+                    decoding="async"
+                    width={24}
+                    height={24}
                     className="w-5 h-5 sm:w-6 sm:h-6 object-contain"
                   />
                 </div>
@@ -111,12 +115,16 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6 }}
-          >
-            <img
-              src={contactImage}
-              alt="Alineadores SupraLine"
-              className="w-full h-full object-cover object-center"
-            />
+            >
+              <img
+                src={contactImage}
+                alt="Alineadores SupraLine"
+                loading="lazy"
+                decoding="async"
+                width={1070}
+                height={1600}
+                className="w-full h-full object-cover object-center"
+              />
           </motion.div>
         </div>
       </div>

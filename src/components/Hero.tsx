@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useMemo } from 'react';
-import defaultHero from '../assets/db4ecc90b5f5556c86d59acad317214ac1dbac21.png';
+import defaultHero from '../assets/db4ecc90b5f5556c86d59acad317214ac1dbac21.jpg';
 
 interface HeroProps {
   onOpenQuiz: () => void;
@@ -37,6 +37,11 @@ export function Hero({ onOpenQuiz }: HeroProps) {
               <img
                 src={heroAssetUrl}
                 alt="Alineadores SupraLine"
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                width={1080}
+                height={1616}
                 className="w-full h-full object-cover object-top"
               />
             </div>

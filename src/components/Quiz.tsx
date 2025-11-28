@@ -260,6 +260,10 @@ export function Quiz({ isOpen, onOpen, onClose }: QuizProps) {
                       <img
                         src={option.image}
                         alt={option.label}
+                        loading="lazy"
+                        decoding="async"
+                        width={455}
+                        height={261}
                         className={`w-full h-24 sm:h-28 object-contain mb-3 ${option.imageClass ?? ''}`}
                       />
                       {option.label}

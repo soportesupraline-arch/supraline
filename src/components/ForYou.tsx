@@ -7,19 +7,19 @@ export function ForYou() {
       title: 'Supra Kids',
       description:
         'Tratamientos guiados por odontopediatras para acompañar cada etapa de crecimiento con el seguimiento que necesitan los más chicos.',
-      image: '/supra_kids.png'
+      image: '/supra_kids.jpg'
     },
     {
       title: 'Supra Teens',
       description:
         'Alineadores que se adaptan al ritmo activo, social y deportivo de los adolescentes sin interrumpir su día a día.',
-      image: '/supra_teens.png'
+      image: '/supra_teens.jpg'
     },
     {
       title: 'Supra Adults',
       description:
         'Resultados discretos y profesionales pensados para integrarse fácilmente a cualquier rutina adulta.',
-      image: '/supra_adults.png'
+      image: '/supra_adults.jpg'
     }
   ];
 
@@ -54,6 +54,10 @@ export function ForYou() {
               <ImageWithFallback
                 src={segment.image}
                 alt={segment.title}
+                loading="lazy"
+                decoding="async"
+                width={1414}
+                height={2000}
                 className="w-full h-[420px] object-cover rounded-[40px]"
                 style={{ borderRadius: '40px' }}
               />
