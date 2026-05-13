@@ -10,7 +10,7 @@ interface NavProps {
 const links = [
   { href: '#tratamiento', label: 'Tratamiento' },
   { href: '#ecosistema', label: 'Ecosistema' },
-  { href: '#por-que', label: '¿Por qué Supra?' },
+  { href: '#eventos', label: 'Eventos' },
   { href: '#quiz', label: 'Quiz' },
 ];
 
