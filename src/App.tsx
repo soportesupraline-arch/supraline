@@ -1,34 +1,46 @@
-import { useState } from 'react';
-import { Header } from './components/Header';
+import { useState, useEffect } from 'react';
+import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
+import { Marquee } from './components/Marquee';
 import { HowItWorks } from './components/HowItWorks';
-import { WhySupraLine } from './components/WhySupraLine';
-import { ForYou } from './components/ForYou';
+import { Ecosystem } from './components/Ecosystem';
+import { WhySupra } from './components/WhySupra';
 import { Quiz } from './components/Quiz';
-import { FAQ } from './components/FAQ';
-import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
 
 export default function App() {
-  const [isQuizOpen, setIsQuizOpen] = useState(false);
-  const handleOpenQuiz = () => setIsQuizOpen(true);
-  const handleCloseQuiz = () => setIsQuizOpen(false);
+  const [quizOpen, setQuizOpen] = useState(false);
+
+  // Cuando abrimos el modal del quiz, bloqueamos el scroll del body.
+  useEffect(() => {
+    if (quizOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [quizOpen]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden">
-      <Header />
+    <div className="min-h-screen bg-white text-[#0C3754]">
+      <Nav onQuizOpen={() => setQuizOpen(true)} />
+
       <main>
-        <Hero onOpenQuiz={handleOpenQuiz} />
+        <Hero onQuizOpen={() => setQuizOpen(true)} />
+        <Marquee />
         <HowItWorks />
-        <ForYou />
-        <WhySupraLine />
-        <Quiz isOpen={isQuizOpen} onOpen={handleOpenQuiz} onClose={handleCloseQuiz} />
-        <FAQ />
-        <Contact />
+        <Ecosystem />
+        <WhySupra />
+        <Quiz
+          isOpen={quizOpen}
+          onOpen={() => setQuizOpen(true)}
+          onClose={() => setQuizOpen(false)}
+        />
       </main>
+
       <Footer />
-      <WhatsAppButton />
     </div>
   );
 }

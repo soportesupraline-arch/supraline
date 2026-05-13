@@ -1,77 +1,87 @@
-import { Calendar, Scan, Package, Heart } from 'lucide-react';
 import { motion } from 'motion/react';
+import { ScanLine, Brain, Layers, Activity } from 'lucide-react';
+
+const steps = [
+  {
+    n: '01',
+    icon: ScanLine,
+    title: 'Escaneo y diagnóstico',
+    body:
+      'Hacemos un escaneo 3D completo y un diagnóstico integral. No vendemos un tratamiento puntual: ordenamos toda la salud bucal desde el inicio.',
+  },
+  {
+    n: '02',
+    icon: Brain,
+    title: 'Plan con IA',
+    body:
+      'Diseñamos tu plan de movimientos pieza por pieza con tecnología e inteligencia artificial. Te mostramos la evolución antes de empezar.',
+  },
+  {
+    n: '03',
+    icon: Layers,
+    title: 'Alineadores Supra',
+    body:
+      'En una semana tus alineadores están listos. Te los entregamos en kits numerados, con todos los accesorios y un manual claro de uso.',
+  },
+  {
+    n: '04',
+    icon: Activity,
+    title: 'Seguimiento continuo',
+    body:
+      'Cada quince días renovamos placas. Hacemos controles digitales para asegurar que cada movimiento esté en plan. La salud bucal no termina con el tratamiento.',
+  },
+];
 
 export function HowItWorks() {
-  const steps = [
-    {
-      icon: Calendar,
-      title: 'Consulta inicial',
-      description: 'Agendá una cita con nuestro equipo odontológico para evaluar tu caso.'
-    },
-    {
-      icon: Scan,
-      title: 'Escaneo 3D',
-      description: 'Realizamos un escaneo digital preciso de tu dentadura sin molestias.'
-    },
-    {
-      icon: Package,
-      title: 'Recibís tus alineadores',
-      description: 'Te entregamos tu kit personalizado con alineadores para tu tratamiento.'
-    },
-    {
-      icon: Heart,
-      title: 'Seguimiento profesional',
-      description: 'Te acompañamos en cada etapa con controles odontológicos regulares incluidos dentro del tratamineto.'
-    }
-  ];
-
   return (
-    <section id="como-funciona" className="py-12 sm:py-16 lg:py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-10 sm:mb-12 lg:mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#0C3754] mb-3 sm:mb-4 px-4">
-            Estás a 4 pasos de conseguir tu sonrisa perfecta
+    <section
+      id="tratamiento"
+      className="py-20 sm:py-28 lg:py-32 bg-white"
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="max-w-3xl mb-14 sm:mb-20">
+          <span
+            className="text-xs sm:text-sm text-[#0578B7] tracking-[0.18em]"
+            style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', fontWeight: 600 }}
+          >
+            01 · TRATAMIENTO
+          </span>
+          <h2
+            className="mt-4 text-4xl sm:text-5xl lg:text-6xl text-[#0C3754] leading-[1.02] tracking-tight"
+            style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', fontWeight: 600 }}
+          >
+            Diagnóstico, alineadores y seguimiento — en un solo ecosistema.
           </h2>
-          <p className="text-base sm:text-lg text-[#0C3754]/70 max-w-2xl mx-auto px-4">
-            Un proceso simple y profesional diseñado para tu comodidad
-          </p>
-        </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {steps.map((step, index) => (
-            <motion.div 
-              key={index} 
-              className="relative"
-              initial={{ opacity: 0, y: 50 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#0C3754]/10 rounded-3xl overflow-hidden border border-[#0C3754]/10">
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.n}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className="bg-white p-8 sm:p-10 lg:p-12 relative group hover:bg-[#ECEBE4]/40 transition-colors"
             >
-              <div className="flex flex-col items-center text-center px-4">
-                {/* Step Number */}
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 sm:left-4 sm:translate-x-0 w-10 h-10 sm:w-12 sm:h-12 bg-[#0578B7] text-white rounded-full flex items-center justify-center text-lg sm:text-xl z-10 shadow-lg">
-                  {index + 1}
+              <div className="flex items-start justify-between mb-8">
+                <span
+                  className="text-4xl sm:text-5xl text-[#0578B7]"
+                  style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', fontWeight: 600 }}
+                >
+                  {s.n}
+                </span>
+                <div className="w-12 h-12 rounded-full bg-[#0C3754]/5 flex items-center justify-center text-[#0C3754] group-hover:bg-[#0C3754] group-hover:text-white transition-colors">
+                  <s.icon size={20} />
                 </div>
-
-                {/* Icon */}
-                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-[#ECEBE4] rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mt-6 sm:mt-0 group hover:bg-[#0578B7] transition-colors">
-                  <step.icon className="w-10 h-10 sm:w-12 sm:h-12 text-[#0578B7] group-hover:text-white transition-colors" />
-                </div>
-
-                {/* Content */}
-                <h3 className="text-lg sm:text-xl text-[#0C3754] mb-2 sm:mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-sm sm:text-base text-[#0C3754]/70">
-                  {step.description}
-                </p>
               </div>
+              <h3
+                className="text-2xl sm:text-3xl text-[#0C3754] mb-4 tracking-tight"
+                style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', fontWeight: 600 }}
+              >
+                {s.title}
+              </h3>
+              <p className="text-[#0C3754]/70 leading-relaxed">{s.body}</p>
             </motion.div>
           ))}
         </div>

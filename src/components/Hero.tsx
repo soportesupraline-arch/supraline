@@ -1,76 +1,128 @@
-import { ArrowRight } from 'lucide-react';
 import { motion } from 'motion/react';
-import { useMemo } from 'react';
-import defaultHero from '../assets/db4ecc90b5f5556c86d59acad317214ac1dbac21.jpg';
+import { ArrowRight } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface HeroProps {
-  onOpenQuiz: () => void;
+  onQuizOpen: () => void;
 }
 
-export function Hero({ onOpenQuiz }: HeroProps) {
-  const handleHeroClick = () => {
-    document
-      .querySelector<HTMLElement>('[data-quiz-section]')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    onOpenQuiz();
-  };
-  // Usa src/assets/hero.(jpg|jpeg|png|webp); si no existe, cae al asset por defecto del proyecto.
-  const heroAssetUrl = useMemo(() => {
-    const matches = import.meta.glob('../assets/hero.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}', {
-      eager: true,
-      as: 'url',
-    }) as Record<string, string>;
-    return Object.values(matches)[0] ?? (defaultHero as unknown as string);
-  }, []);
+export function Hero({ onQuizOpen }: HeroProps) {
   return (
-    <section id="inicio" className="flex flex-col justify-start pt-20 bg-white">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 lg:items-start">
-          {/* Imagen - Izquierda */}
-          <motion.div
-            className="order-2 lg:order-1 flex justify-center items-start"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-          >
-            <div className="relative w-full max-w-md lg:max-w-lg h-[360px] sm:h-[420px] lg:h-[360px] rounded-3xl overflow-hidden shadow-xl">
-              <img
-                src={heroAssetUrl}
-                alt="Alineadores SupraLine"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                width={1080}
-                height={1616}
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-          </motion.div>
+    <section
+      id="top"
+      className="relative pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden"
+      style={{ backgroundColor: '#ECEBE4' }}
+    >
+      {/* Decorative orbit lines */}
+      <svg
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.07]"
+        viewBox="0 0 1440 800"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <ellipse cx="720" cy="400" rx="640" ry="320" stroke="#0C3754" strokeWidth="1" fill="none" />
+        <ellipse cx="720" cy="400" rx="480" ry="240" stroke="#0C3754" strokeWidth="1" fill="none" />
+        <ellipse cx="720" cy="400" rx="320" ry="160" stroke="#0C3754" strokeWidth="1" fill="none" />
+      </svg>
 
-          {/* Texto - Derecha */}
-          <motion.div
-            className="order-1 lg:order-2 flex flex-col items-start justify-start lg:pt-4"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-          >
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-[#0C3754] mb-4 lg:mb-6 leading-tight">
-              Estamos en cada movimiento
-            </h1>
-            <p className="text-lg sm:text-xl text-[#0C3754]/70 mb-4 lg:mb-8">
-              SupraLine es innovación y respaldo odontológico profesional.
-            </p>
-            <p className="text-base sm:text-lg text-[#0C3754]/70 mb-6 lg:mb-10">
-              Transformá tu sonrisa de manera cómoda, estética y con el acompañamiento que merecés en cada paso del proceso.
-            </p>
-            <button
-              type="button"
-              onClick={handleHeroClick}
-              className="inline-flex w-fit items-center justify-center gap-2 whitespace-nowrap bg-[#0578B7] text-white px-5 py-2.5 rounded-full text-base shadow-[0_10px_18px_rgba(12,55,84,0.14)] hover:bg-[#0C3754] hover:shadow-[0_14px_24px_rgba(12,55,84,0.18)] transition-colors"
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex flex-col lg:flex-row lg:items-end gap-10 lg:gap-16">
+          {/* LEFT — Manifesto */}
+          <div className="flex-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0C3754]/5 text-[#0C3754] text-xs sm:text-sm mb-8"
+              style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', letterSpacing: '0.12em' }}
             >
-              Descubrí tu tratamiento
-              <ArrowRight size={20} />
-            </button>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0578B7]" />
+              SALUD BUCAL · TECNOLOGÍA · LIFESTYLE
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-[#0C3754] text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.95] tracking-tight"
+              style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', fontWeight: 600 }}
+            >
+              Tu sonrisa,
+              <br />
+              <span className="text-[#0578B7]">en movimiento.</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.45 }}
+              className="mt-8 max-w-xl text-base sm:text-lg text-[#0C3754]/75 leading-relaxed"
+            >
+              Ortodoncia invisible y cuidado bucal integral. Diagnóstico con tecnología de
+              última generación y seguimiento continuo, pensado para tu día a día.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5"
+            >
+              <button
+                onClick={onQuizOpen}
+                className="group inline-flex items-center justify-center gap-3 bg-[#0C3754] text-white px-7 py-4 rounded-full hover:bg-[#0578B7] transition-colors text-sm sm:text-base"
+                style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif' }}
+              >
+                Empezar mi diagnóstico
+                <ArrowRight
+                  size={18}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </button>
+              <a
+                href="#tratamiento"
+                className="inline-flex items-center justify-center gap-2 text-[#0C3754] px-7 py-4 rounded-full hover:bg-[#0C3754]/5 transition-colors text-sm sm:text-base"
+                style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif' }}
+              >
+                Cómo funciona
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+              className="mt-14 flex items-center gap-8 text-xs sm:text-sm text-[#0C3754]/60"
+              style={{ fontFamily: 'Chillax, ui-sans-serif, system-ui, sans-serif', letterSpacing: '0.08em' }}
+            >
+              <span>TIGRE · BA</span>
+              <span className="w-px h-3 bg-[#0C3754]/20" />
+              <span>DIAGNÓSTICO INTEGRAL</span>
+              <span className="hidden sm:inline w-px h-3 bg-[#0C3754]/20" />
+              <span className="hidden sm:inline">IA + SEGUIMIENTO</span>
+            </motion.div>
+          </div>
+
+          {/* RIGHT — Disco-objeto */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, rotate: -8 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
+            className="relative w-full lg:w-[420px] aspect-square flex items-center justify-center"
+          >
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 80, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-0 rounded-full border border-[#0C3754]/15"
+            />
+            <motion.div
+              animate={{ rotate: -360 }}
+              transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
+              className="absolute inset-6 rounded-full border border-[#0578B7]/20"
+            />
+            <div className="relative w-[68%] aspect-square rounded-full bg-white shadow-[0_30px_80px_-30px_rgba(12,55,84,0.4)] flex items-center justify-center">
+              <Logo size={180} color="#0C3754" strokeWidth={2.2} />
+            </div>
           </motion.div>
         </div>
       </div>
