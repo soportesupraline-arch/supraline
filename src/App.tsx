@@ -4,6 +4,8 @@ import { Hero } from './components/Hero';
 import { Marquee } from './components/Marquee';
 import { HowItWorks } from './components/HowItWorks';
 import { Ecosystem } from './components/Ecosystem';
+import { Events } from './components/Events';
+import { ObjectFeature } from './components/ObjectFeature';
 import { WhySupra } from './components/WhySupra';
 import { Quiz } from './components/Quiz';
 import { Footer } from './components/Footer';
@@ -11,7 +13,6 @@ import { Footer } from './components/Footer';
 export default function App() {
   const [quizOpen, setQuizOpen] = useState(false);
 
-  // Cuando abrimos el modal del quiz, bloqueamos el scroll del body.
   useEffect(() => {
     if (quizOpen) {
       document.body.style.overflow = 'hidden';
@@ -32,6 +33,8 @@ export default function App() {
         <Marquee />
         <HowItWorks />
         <Ecosystem />
+        <Events />
+        <ObjectFeature />
         <WhySupra />
         <Quiz
           isOpen={quizOpen}
